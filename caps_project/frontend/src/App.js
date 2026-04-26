@@ -7,7 +7,7 @@ function App() {
   const [response, setResponse] = useState("");
 
   //add comment to test commit 1
-  //switch branch to test branch sampleone test
+  //switch branch to test branch sampleone 
 
   const handleSubmit = async () => {
     try {
