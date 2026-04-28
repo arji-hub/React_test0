@@ -7,8 +7,12 @@ const API = "http://localhost:5000";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  //add comment to test commit 1
-  //switch branch to test branch sampleone test
+  // Fetch notes on load
+  useEffect(() => {
+    fetch(`${API}/notes`)
+      .then((res) => res.json())
+      .then((data) => setNotes(data));
+  }, []);
 
   // Add a new note
   const addNote = (text) => {
