@@ -1,51 +1,42 @@
-import React, { useState } from "react";
-import "./App.css";
+import { useState, useEffect } from "react";
+import NoteForm from "./NoteForm";
+import NoteList from "./NoteList";
+
+const API = "http://localhost:5000";
 
 function App() {
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
-  const [response, setResponse] = useState("");
+  const [notes, setNotes] = useState([]);
 
-  //add comment to test commit 1
-  //switch branch to test branch sampleone 
+  // Fetch notes on load
+  useEffect(() => {
+    fetch(`${API}/notes`)
+      .then((res) => res.json())
+      .then((data) => setNotes(data));
+  }, []);
 
-  const handleSubmit = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/add-asset", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, location }),
-      });
-      const data = await res.json();
-      setResponse(data.message || JSON.stringify(data));
-    } catch (err) {
-      setResponse("Error: " + err.message);
-    }
+  // Add a new note
+  const addNote = (text) => {
+    fetch(`${API}/notes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    })
+      .then((res) => res.json())
+      .then((newNote) => setNotes([...notes, newNote]));
+  };
+
+  // Delete a note
+  const deleteNote = (id) => {
+    fetch(`${API}/notes/${id}`, { method: "DELETE" }).then(() =>
+      setNotes(notes.filter((n) => n.id !== id))
+    );
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Mini Asset Sender</h2>
-
-        <input
-          placeholder="Asset Name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <br />
-
-        <input
-          placeholder="Location"
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <br />
-        <br />
-
-        <button onClick={handleSubmit}>Submit</button>
-
-        <h3>{response}</h3>
-      </header>
+    <div style={{ maxWidth: "600px", margin: "40px auto", padding: "0 20px" }}>
+      <h1>📝 My Notes</h1>
+      <NoteForm onAdd={addNote} />
+      <NoteList notes={notes} onDelete={deleteNote} />
     </div>
   );
 }
