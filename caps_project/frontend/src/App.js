@@ -7,7 +7,7 @@ const API = "http://localhost:5000";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  // Fetch notes on load
+  // Fetch notes on backend when component mounts
   useEffect(() => {
     fetch(`${API}/notes`)
       .then((res) => res.json())
@@ -28,7 +28,7 @@ function App() {
   // Delete a note
   const deleteNote = (id) => {
     fetch(`${API}/notes/${id}`, { method: "DELETE" }).then(() =>
-      setNotes(notes.filter((n) => n.id !== id))
+      setNotes(notes.filter((n) => n.id !== id)),
     );
   };
 
