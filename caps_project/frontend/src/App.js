@@ -17,8 +17,6 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [nextNumber, setNextNumber] = useState(1);
 
-  //testing comment merge conflict
-
   // Fetch notes in real time from Firebase
   useEffect(() => {
     const q = query(collection(db, "notes"), orderBy("number"));
