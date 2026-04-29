@@ -17,6 +17,7 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [nextNumber, setNextNumber] = useState(1);
 
+  //comment1
   // Fetch notes in real time from Firebase
   useEffect(() => {
     const q = query(collection(db, "notes"), orderBy("number"));
