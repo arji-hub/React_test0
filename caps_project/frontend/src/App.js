@@ -17,7 +17,7 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [nextNumber, setNextNumber] = useState(1);
 
-  //testing comment
+  //testing comment merge conflict
 
   // Fetch notes in real time from Firebase
   useEffect(() => {
