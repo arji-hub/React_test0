@@ -10,6 +10,7 @@ function Login() {
     console.log("Email:", email);
     console.log("Password:", password);
     // Add your Firebase login logic here
+    navigate("/note");
   };
 
   return (
