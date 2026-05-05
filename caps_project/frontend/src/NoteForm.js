@@ -19,7 +19,7 @@ function NoteForm({ onAdd }) {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="kahitanooo"
+        placeholder="Enter your note here..."
         style={{
           flex: 1,
           padding: "8px 12px",
