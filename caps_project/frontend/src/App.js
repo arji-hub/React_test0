@@ -17,7 +17,6 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [nextNumber, setNextNumber] = useState(1);
 
-  //comment1
   // Fetch notes in real time from Firebase
   useEffect(() => {
     const q = query(collection(db, "notes"), orderBy("number"));
@@ -49,6 +48,8 @@ function App() {
   };
 
   // Delete a note from Firebase
+  //ghfhgfhfh
+  //kjkhkjh
   const deleteNote = async (id) => {
     await deleteDoc(doc(db, "notes", id));
   };
