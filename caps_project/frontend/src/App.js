@@ -48,6 +48,8 @@ function App() {
   };
 
   // Delete a note from Firebase
+  //ghfhgfhfh
+  //kjkhkjh
   const deleteNote = async (id) => {
     await deleteDoc(doc(db, "notes", id));
   };
