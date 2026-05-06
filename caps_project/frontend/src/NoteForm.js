@@ -19,9 +19,9 @@ function NoteForm({ onAdd }) {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Enter your note here..."
+        placeholder="Enter your note here....             "
         style={{
-          flex: 1,
+          flex: 2,
           padding: "8px 12px",
           fontSize: "16px",
           borderRadius: "6px",
@@ -31,7 +31,8 @@ function NoteForm({ onAdd }) {
       <button
         type="submit"
         style={{
-          padding: "8px 16px",
+          flex: 1,
+          padding: "8px 2px",
           fontSize: "16px",
           borderRadius: "6px",
           cursor: "pointer",

@@ -2,7 +2,13 @@ function NoteList({ notes, onDelete }) {
   if (notes.length === 0) return <p>No notes yet. Add one above!</p>;
 
   return (
-    <ul style={{ listStyle: "none", padding: 0 }}>
+    <ul
+      style={{
+        flex: 1,
+        listStyle: "none",
+        padding: 0,
+      }}
+    >
       {notes.map((note) => (
         <li
           key={note.id}
@@ -20,7 +26,15 @@ function NoteList({ notes, onDelete }) {
           <span>{note.text}</span>
           <button
             onClick={() => onDelete(note.id)}
-            style={{ background: "#ff4d4d", color: "#fff", border: "none", borderRadius: "6px", padding: "6px 12px", cursor: "pointer" }}
+            style={{
+              marginLeft: "0px",
+              background: "#ff4d4d",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              padding: "6px 12px",
+              cursor: "pointer",
+            }}
           >
             Delete
           </button>
