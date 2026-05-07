@@ -47,7 +47,7 @@ function App() {
       text,
       number: nextNumber,
       createdAt: new Date(),
-      qrCode: convertURL,
+      qr: convertURL,
     });
   };
 
