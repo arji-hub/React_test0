@@ -16,6 +16,7 @@ function NoteList({ notes, onDelete }) {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            gap: "30px", 
             padding: "12px 16px",
             marginBottom: "10px",
             background: "#f9f9f9",
@@ -23,7 +24,17 @@ function NoteList({ notes, onDelete }) {
             border: "1px solid #eee",
           }}
         >
-          <span>{note.text}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            {note.qr && (
+              <img
+                src={note.qr}
+                alt={`QR for ${note.id}`}
+                style={{ width: "60px", height: "60px" }}
+              />
+            )}
+            <span>{note.text}</span>
+          </div>
+
           <button
             onClick={() => onDelete(note.id)}
             style={{
@@ -34,6 +45,7 @@ function NoteList({ notes, onDelete }) {
               borderRadius: "6px",
               padding: "6px 12px",
               cursor: "pointer",
+              
             }}
           >
             Delete

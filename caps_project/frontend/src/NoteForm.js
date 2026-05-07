@@ -1,4 +1,5 @@
 import { useState } from "react";
+import QRCode from "react-qr-code";
 
 function NoteForm({ onAdd }) {
   const [text, setText] = useState("");
