@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
+import QRCode from "qrcode"; 
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -40,10 +41,13 @@ function App() {
   // Add a new note with custom incremental ID
   const addNote = async (text) => {
     const noteId = `note${String(nextNumber).padStart(3, "0")}`;
+    const noteURL = `https://notes-528dc.web.app/note/${noteId}`;
+    const convertURL = await QRCode.toDataURL(noteURL);
     await setDoc(doc(db, "notes", noteId), {
       text,
       number: nextNumber,
       createdAt: new Date(),
+      qr: convertURL,
     });
   };
 
