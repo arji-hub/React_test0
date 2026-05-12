@@ -16,7 +16,7 @@ function NoteList({ notes, onDelete }) {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: "30px", 
+            gap: "30px",
             padding: "12px 16px",
             marginBottom: "10px",
             background: "#f9f9f9",
@@ -37,7 +37,10 @@ function NoteList({ notes, onDelete }) {
 
           <button
             onClick={() => onDelete(note.id)}
+            onMouseEnter={(e) => (e.target.style.background = "#cc0000")}
+            onMouseLeave={(e) => (e.target.style.background = "#ff4d4d")}
             style={{
+              width: "80px",
               marginLeft: "0px",
               background: "#ff4d4d",
               color: "#fff",
@@ -45,7 +48,6 @@ function NoteList({ notes, onDelete }) {
               borderRadius: "6px",
               padding: "6px 12px",
               cursor: "pointer",
-              
             }}
           >
             Delete
