@@ -15,7 +15,7 @@ function NotePage() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setNote(docSnap.data());
+        setNote(docSnap.data());s
       } else {
         setNotFound(true);
       }

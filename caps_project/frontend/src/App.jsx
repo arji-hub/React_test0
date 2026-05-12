@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Note from "./Note";
-import NotePage from "./NotePage"; 
+import NotePage from "./NotePage";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/note" element={<Note />} />
         <Route path="/note/:id" element={<NotePage />} />
+        <Route path="*" element={<h2>404 Not Found</h2>} />
       </Routes>
     </Router>
   );

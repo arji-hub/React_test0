@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
-import QRCode from "qrcode"; 
+import QRCode from "qrcode";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -52,7 +52,6 @@ function App() {
   };
 
   // Delete a note from Firebase
-  //ghfhgfhf
   const deleteNote = async (id) => {
     await deleteDoc(doc(db, "notes", id));
   };
